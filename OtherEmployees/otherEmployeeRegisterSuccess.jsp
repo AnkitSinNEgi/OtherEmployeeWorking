@@ -53,6 +53,8 @@
         </table>
         <br>
         <a href="${pageContext.request.contextPath}/otherEmployee/listAllEmployees" >View All Registered Employees</a>
+        <br><br>
+        <a href="${pageContext.request.contextPath}/otherEmployee/form" >Employee Registration and Updation Form</a>
     </div>
     <script src="webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
     <script src="webjars/jquery/3.6.4/jquery.min.js"></script>

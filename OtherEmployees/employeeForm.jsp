@@ -45,7 +45,12 @@
              	margin-left : 50px;
              	font-weight: 700;
             }
-         
+            #footerViewAllEmployee{
+             font-size: 18px;
+             margin-left: 50px;
+             margin-top:330px;
+             text-decoration: underline;
+            }
             .heading{
             	text-align:center;
             	margin: 30px 30px 30px 30px;
@@ -102,17 +107,18 @@
                     </div>
     			<form:form id="registerOtherEmployeeForm" action="${pageContext.request.contextPath}/otherEmployee/register" method="post">
         		<label for="userid">User ID : </label>
-        		<input type="text" id="userid" name="userid" readonly="true"><br>
+        		<input type="text" placeholder="Auto-generated" id="userid" name="userid" readonly="true"><br>
 
        			 <label for="employee_name">Employee Name : </label>
-        		<input type="text" id="employee_name" name="employee_name" required><br>
+        		<input type="text" placeholder="Enter Employee Name" id="employee_name" name="employee_name" required><br>
 
         		<label for="created_by">Created By : </label>
-       			 <input type="text" id="created_by" name="created_by" required><br>
+       			 <input type="text" placeholder="Enter Your Name" id="created_by" name="created_by" required><br>
 
        			 <label for="department_pk">Department : </label>
-				<select id="department_pk" name="department_pk">
+				<select id="department_pk" name="department_pk" >
     				<c:forEach items="${departments}" var="department">
+    				
         			<option value="${department.department_id}">${department.department_name}</option>
     				</c:forEach>
 				</select><br><br>
@@ -124,7 +130,7 @@
 		 		<input type="text" id="otheremp_out_time" name="otheremp_out_time" readonly value="${outTimeValue}" placeholder="05:30 PM"><br>
 
        			 <label for="face_id">Face ID : </label>
-       		    <input type="text" id="face_id" name="face_id" required><br>
+       		    <input type="text" placeholder="Enter FaceId" id="face_id" name="face_id" required><br>
 	
         		<input type="submit" value="Submit">
    			  </form:form>
@@ -138,25 +144,26 @@
                     </div>
   		
   		 
-  <div style="background-color:white; height:100px; width:120 px; background-color:yellow;">
+    <div style="background-color:white; height:100px; width:120 px; ">
     <form:form id="registerOtherEmployeeForm" action="${pageContext.request.contextPath}/otherEmployee/updateOtherEmployeeDetails" method="post">
     <!-- ... other form fields ... -->
     <label for="viewEmployeeDetails">View Employee Details by Face ID : </label>
-    <input type="text" id="viewEmployeeDetails" name="viewEmployeeDetails" required><br>
+    <input type="text" placeholder="Enter FaceId" id="viewEmployeeDetails" name="face_id" required ><br>
 
      <!-- 
     <input type="submit" value="View Details" formaction="${pageContext.request.contextPath}/otherEmployee/viewEmployeeDetails">
      Button Example -->
-    
+    <br>
     <input type="submit" value="View Details" >
-    
-    
     
     <!-- Hyperlink Example --formaction="${pageContext.request.contextPath}/otherEmployee/updateEmployeeDetails"-->
     <!-- <a href="<c:url value='/otherEmployee/viewEmployeeDetails'/>?faceId=${viewEmployeeDetails}" class="btn btn-primary">View Details</a> -->
 
 	</form:form>
-  		 
+  		  <br>
+  		<div id="footerViewAllEmployee">
+        <a href="${pageContext.request.contextPath}/otherEmployee/listAllEmployees" >View All Registered Employees</a>
+        </div>
   </div>
 
  </div>

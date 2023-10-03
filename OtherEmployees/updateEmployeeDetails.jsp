@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ include file="/WEB-INF/jsp/includes.jsp" %>
+<%@page contentType="text/html" pageEncoding="windows-1252"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
@@ -11,19 +13,28 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height:  100vh;
             margin: 0;
         }
-        .employeeData {
-            height: 600px;
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        #updateOtherEmployeeDetails{	
+        		background-color:white;
+             	font-size: 17px;
+             	margin-left : 50px;
+             	font-weight: 700;
+             	height: 700px;
+             	width: 600px;
+             	box-shadow: 5px 10px #888888;
+             	
+            }
+        #heading{
+        text-align: center;
+        font-size: 80px;     
+        margin-top: 30px;   
         }
-        .form-group {
-            margin-bottom: 10px;
+        #updateOtherEmployeeForm{
+           margin-left: 30px;             
         }
+        
     </style>
 </head>
 <body>
@@ -32,12 +43,13 @@
     
     
     <!-- Update part -->
-    <div id="updateEmployeeDetails">
-    	
+    <div id="updateOtherEmployeeDetails">    	
   
-        <div id="heading"> <h1>Employee Update Form</h1> </div>
-          
-        <form:form id="registerOtherEmployeeForm" action="${pageContext.request.contextPath}/otherEmployee/update" method="post">
+        <div id="heading">
+         <h1>Employee Update Form</h1>
+        </div>
+          <br><br>
+        <form:form id="updateOtherEmployeeForm" action="${pageContext.request.contextPath}/otherEmployee/update" method="post">
         <label for="userid">User ID : </label>
         <input type="text" id="userid" name="userid" readonly value="${employee.userid}"><br><br>
 
@@ -63,12 +75,14 @@
 
         <label for="face_id">Face ID : </label>
         <input type="text" id="face_id" name="face_id" readonly value="${employee.face_id}"><br><br>
-	
-	
-	
+		
         <input type="submit" value="Submit">
-    </form:form>
-          
+         <br><br>
+        
+        <a href="${pageContext.request.contextPath}/otherEmployee/listAllEmployees" >View All Registered Employees</a>
+        
+    </form:form><br>
+              
     </div>
 </body>
 </html>

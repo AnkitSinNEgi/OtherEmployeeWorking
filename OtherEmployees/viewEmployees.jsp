@@ -55,7 +55,7 @@
         
         </div>
         <br>
-        <a href="${pageContext.request.contextPath}/otherEmployee/form">Register New Employee</a> 
+        <a href="${pageContext.request.contextPath}/otherEmployee/form">Register/Update Employees</a> 
        <!--<a href="/otherEmployee/form">Register New Employee</a>  --> 
     </div>
 </body>

@@ -30,7 +30,7 @@ public interface OtherEmployeesService {
 	public OtherEmployee getOtherEmployeeByFaceId(ModelMap mm, Map<String, Object> sKey, HttpServletRequest request);
 
 	//test
-	public OtherEmployee getOtherEmployeeByFaceId(String faceId, Map<String, Object> sKey);
+//	public OtherEmployee getOtherEmployeeByFaceId(String faceId, Map<String, Object> sKey);
 	//test
 	
 	

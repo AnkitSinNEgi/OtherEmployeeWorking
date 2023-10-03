@@ -23,7 +23,7 @@ public interface OtherEmployeeIbatis {
 	OtherEmployee findOtherEmployee(ModelMap mm);
 	
 	//To get other employee by face id
-	@Select("Select userid, employee_name, created_by, department_pk, otheremp_in_time, otheremp_out_time, face_id from ${skey}.biometric_other_emp_map where biometric_other_emp_map.userid = #{face_id}")
+	@Select("Select userid, employee_name, created_by, department_pk, otheremp_in_time, otheremp_out_time, face_id from ${skey}.biometric_other_emp_map where biometric_other_emp_map.face_id = #{face_id}")
 	OtherEmployee findOtherEmployeeByFaceId(ModelMap mm);
 	
 	// To insert an employee
@@ -40,7 +40,7 @@ public interface OtherEmployeeIbatis {
 	public List<OtherEmployeeDepartment> getDepartments();
 	
 	// update an employee
-	@Update("update biometric_other_emp_map set employee_name=#{employee_name}, created_by=#{created_by}, department_pk=#{department_pk}, face_id=#{face_id}")
+	@Update("update biometric_other_emp_map set employee_name=#{employee_name}, created_by=#{created_by}, department_pk=#{department_pk}, face_id=#{face_id} where biometric_other_emp_map.face_id = #{face_id}")
 	public void updateOtherEmployee(ModelMap mm);
 
 	

@@ -75,7 +75,7 @@ public class OtherEmployeeController {
     	HttpSession session = request.getSession(false);
         Map<String, Object> sKey = new HashMap<String, Object>();
         sKey.put("userid", (Long) session.getAttribute("userid"));
-        sKey.put("sKey", (String) session.getAttribute("skey"));             
+        sKey.put("sKey", (String) session.getAttribute("skey"));
         model.addAttribute("departments", employeeService.getDepartments());
         model.addAttribute("employee", employeeService.getOtherEmployeeByFaceId(model,sKey,request));
    
@@ -89,10 +89,10 @@ public class OtherEmployeeController {
     	 HttpSession session = request.getSession(false);
          Map<String, Object> sKey = new HashMap<String, Object>();
          sKey.put("userid", (Long) session.getAttribute("userid"));
-         sKey.put("sKey", (String) session.getAttribute("skey"));            	
+         sKey.put("sKey", (String) session.getAttribute("skey"));       	
     	
-    	model.addAttribute("employee", employeeService.getOtherEmployeeByFaceId(model,sKey,request)); //User to Face id for test
     	employeeService.updateOtherEmployee(model, request);
+    	model.addAttribute("employee", employeeService.getOtherEmployeeByFaceId(model,sKey,request)); //User to Face id for test
     	
     	return "OtherEmployees/otherEmployeeRegisterSuccess";
    	
@@ -113,19 +113,19 @@ public class OtherEmployeeController {
     
     
     //test api
-    @RequestMapping("/recordByFaceId")
-    public ModelAndView getEmployeeByFaceId(@RequestParam("faceId") String faceId, HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        Map<String, Object> sKey = new HashMap<>();
-        sKey.put("userid", (Long) session.getAttribute("userid"));
-        sKey.put("sKey", (String) session.getAttribute("skey"));
-        		
-        OtherEmployee employee = employeeService.getOtherEmployeeByFaceId(faceId, sKey);
-        System.out.print(faceId);
-        ModelAndView modelAndView = new ModelAndView("employeeDetails"); // View name (employeeDetails.jsp)
-        modelAndView.addObject("employee", employee); // Add the employee object to the model
-
-        return modelAndView;
-    }
+//    @RequestMapping("/recordByFaceId")
+//    public ModelAndView getEmployeeByFaceId(@RequestParam("faceId") String faceId, HttpServletRequest request){
+//        HttpSession session = request.getSession(false);
+//        Map<String, Object> sKey = new HashMap<>();
+//        sKey.put("userid", (Long) session.getAttribute("userid"));
+//        sKey.put("sKey", (String) session.getAttribute("skey"));
+//        		
+//        OtherEmployee employee = employeeService.getOtherEmployeeByFaceId(faceId, sKey);
+//        System.out.print(faceId);
+//        ModelAndView modelAndView = new ModelAndView("employeeDetails"); // View name (employeeDetails.jsp)
+//        modelAndView.addObject("employee", employee); // Add the employee object to the model
+//
+//        return modelAndView;
+//    }
     
 }

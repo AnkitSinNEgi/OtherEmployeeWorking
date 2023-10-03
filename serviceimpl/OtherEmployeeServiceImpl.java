@@ -60,12 +60,13 @@ public class OtherEmployeeServiceImpl extends ApplicationObjectSupport implement
 		SqlSession session = AccessPoint.getDBTemplate().openSession();
         try {
             OtherEmployeeIbatis mapper = session.getMapper(OtherEmployeeIbatis.class);
-            Long lastUserID = mapper.getLatestUserID();
-            model.put("userid", lastUserID+1);
+//            Long lastUserID = mapper.getLatestUserID();
+//            model.put("userid", lastUserID+1);
             model.put("employee_name", request.getParameter("employee_name"));
             model.put("created_by", request.getParameter("department_pk"));
             model.put("department_pk", request.getParameter("department_pk"));
             model.put("face_id", request.getParameter("face_id"));
+            System.out.println("userid: "+model.get("userid"));
             mapper.updateOtherEmployee(model);
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,7 +105,9 @@ public class OtherEmployeeServiceImpl extends ApplicationObjectSupport implement
 		  //  mm.put("userid", request.getParameter("userid"));
 			mm.put("skey",sKey.get("sKey"));
 			mm.put("face_id", request.getParameter("face_id"));
+			System.out.println("face_id "+mm.get("face_id"));
 		    oe = mapper.findOtherEmployeeByFaceId(mm);
+		    System.out.println("User id: "+oe.getUserid());
 		} finally {
 			session.commit();
 			session.close();
@@ -126,17 +129,16 @@ public class OtherEmployeeServiceImpl extends ApplicationObjectSupport implement
 		return departments;
 	}
 
-	@Override
-	public OtherEmployee getOtherEmployeeByFaceId(String faceId, Map<String, Object> sKey) {
-		SqlSession session= AccessPoint.getDBTemplate().openSession();
-		OtherEmployee oe= null;
-		try {
-			OtherEmployeeIbatis mapper =session.getMapper(OtherEmployeeIbatis.class);
-			oe= mapper.findOtherEmployeeByFaceId(faceId,(String)sKey.get("sKey"));
-		}finally {
-		session.commit();
-		session.close();
-		}
-		return oe;
-	}
+//	public OtherEmployee getOtherEmployeeByFaceId(String faceId, Map<String, Object> sKey) {
+//		SqlSession session= AccessPoint.getDBTemplate().openSession();
+//		OtherEmployee oe= null;
+//		try {
+//			OtherEmployeeIbatis mapper =session.getMapper(OtherEmployeeIbatis.class);
+//			oe= mapper.findOtherEmployeeByFaceId(faceId,(String)sKey.get("sKey"));
+//		}finally {
+//		session.commit();
+//		session.close();
+//		}
+//		return oe;
+//	}
 }
